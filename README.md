@@ -32,7 +32,7 @@
     + Nút:
     	+ Copy: để người dùng sao chép câu trả lời từ bot.
     	+ Refresh: để người dùng muốn bot trả lời lại câu hỏi đã hỏi trước đó.
-    	+ 
+    
 ### 5. Các Tương Tác Khác
 
 - Người dùng xem lại lịch sử chat: Cho phép người dùng xem lại các cuộc trò chuyện trước đó bằng cách cuộn lên trên.
