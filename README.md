@@ -14,6 +14,7 @@
 - Sự kiện: Người dùng click vào widget.
 - Hành động:
     + hiển thị khung chat và chú thích về tác dụng của chatbot.
+    + Các nội dung bên ngoài khung chat được làm mờ đi.
       
 ### 3. Người Dùng Nhập Tin Nhắn
 
@@ -37,6 +38,7 @@
 
 - Người dùng xem lại lịch sử chat: Cho phép người dùng xem lại các cuộc trò chuyện trước đó bằng cách cuộn lên trên.
 - Người dùng muốn tắt khung chat: click bất kỳ bên ngoài khung chat hoặc click vào nút 'x' tại phần đầu của khung chat.
+- Tự động mở rộng chiều cao khung chat: Khung chat tự động mở rộng chiều cao để phù hợp với dung lượng đoạn tin nhắn trong khung chat.
   
 ### 6. Kết Thúc Cuộc Trò Chuyện
 
