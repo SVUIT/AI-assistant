@@ -50,4 +50,9 @@
 
 ## Back end
 
+- Language: python
+- Dependencies: langchain, langchain_google_vertexai, langchain_community, unstructured, unstructured[pdf], unstructured[docx].
+- Custom gemini dựa trên gemini model và framework llm langchain. Model tạo các retriever từ text và text_summaries và lưu trữ trên chromadb.
+- Dựng api generate response bằng flask. Khi cung cấp prompt, api sẽ generate response và trả về ở định dạng json. Nội dung của response sẽ ở dạng md.
+
 ## Infra
