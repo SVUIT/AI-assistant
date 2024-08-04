@@ -42,7 +42,7 @@
   
 ### 6. Kết Thúc Cuộc Trò Chuyện
 
-- Sự kiện: Người dùng đóng tab hoặc treo máy quá 5 phút.
+- Sự kiện: Người dùng đóng tab.
 - Hành động:
   + Widget thu nhỏ lại về trạng thái ban đầu và xóa toàn bộ nội dung chat trước đó.
 
