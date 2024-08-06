@@ -2,49 +2,47 @@
 
 ## Front end
 
-### 1. Khởi tạo Widget
+### 1. Initialize Widget
 
-- Sự kiện: Người dùng truy cập trang web svuit.org/mmtt/.
-- Hành động:
-    + Widget xuất hiện ở một vị trí cố định góc dưới bên phải.
-    + Hiển thị một icon chat và dòng chữ Ask AI.
+- Event: User visits website svuit.org/mmtt/.
+- Action:
+    + Widget appears in a fixed position in the lower right corner.
+    + Display a chat icon and the text Ask AI.
 
-### 2. Người Dùng Khởi Đầu Cuộc Trò Chuyện
+### 2. User Initiates Conversation
 
-- Sự kiện: Người dùng click vào widget.
-- Hành động:
-    + hiển thị khung chat và chú thích về tác dụng của chatbot.
-    + Các nội dung bên ngoài khung chat được làm mờ đi.
+- Event: User clicks on widget.
+- Action:
+    + displays the chat frame and notes about the chatbot's effects.
+    + Content outside the chat frame is blurred.
       
-### 3. Người Dùng Nhập Tin Nhắn
+### 3. User Enters Message
 
-- Sự kiện: Người dùng nhập văn bản vào ô chat.
-- Hành động:
-  + Tin nhắn của người dùng được gửi đi (Hiển thị phía bên phải khung chat).
-  + Bot xử lý tin nhắn và trả lời phù hợp (Hiển thị phía bên trái khung chat).
+- Event: User enters text into the chat box.
+- Action:
+  + User's message is sent (Displayed on the right side of the chat frame).
+  + Bot processes messages and responds appropriately (Displayed on the left side of the chat frame).
 
-### 4. Bot Trả Lời
+### 4. Reply Bot
 
-- Sự kiện: Bot đã xử lý xong tin nhắn của người dùng.
-- Hành động:
-  + Bot gửi tin nhắn trả lời, có thể bao gồm:
-    + Văn bản: Câu trả lời trực tiếp cho câu hỏi của người dùng.
-    + Markdown: Hiển thị thông tin dưới dạng file Markdown.
-    + Nút:
-    	+ Copy: để người dùng sao chép câu trả lời từ bot.
-    	+ Refresh: để người dùng muốn bot trả lời lại câu hỏi đã hỏi trước đó.
+- Event: The bot has finished processing the user's message.
+- Action:
+  + Bot sends reply messages, which can include:
+    + Text: Direct answers to user questions.
+    + Markdown: Display information as Markdown file.
+    + Button:
+    	+ Copy: let users copy the answer from the bot.
+    	+ Refresh: so that the user wants the bot to answer the previously asked question again.
     
-### 5. Các Tương Tác Khác
+### 5. Other Interactions
 
-- Người dùng xem lại lịch sử chat: Cho phép người dùng xem lại các cuộc trò chuyện trước đó bằng cách cuộn lên trên.
+- Users review chat history: Allows users to review previous conversations by scrolling up.
 
-### 6. Kết Thúc Cuộc Trò Chuyện
+### 6. End the Conversation
 
-- Sự kiện: Người dùng đóng tab.
-- Hành động:
-  + Widget thu nhỏ lại về trạng thái ban đầu và xóa toàn bộ nội dung chat trước đó.
-
-
+- Event: User closes the tab.
+- Action:
+  + Widget shrinks back to its original state and deletes all previous chat content.
 
 ## Back end
 
