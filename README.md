@@ -46,9 +46,18 @@
 
 ## Back end
 
+- Idea: Building a chatbot using the Gemini base model and the LangChain LLM framework.  
 - Language: python
-- Dependencies: langchain, langchain_google_vertexai, langchain_community, unstructured, unstructured[pdf], unstructured[docx].
-- Custom gemini dựa trên gemini model và framework llm langchain. Model tạo các retriever từ text và text_summaries và lưu trữ trên chromadb.
-- Dựng api generate response bằng flask. Khi cung cấp prompt, api sẽ generate response và trả về ở định dạng json. Nội dung của response sẽ ở dạng md.
+-  Training data: content from courses of University of Information Technology, Viet Nam National University , Ho Chi Minh City. 
+- Steps:
+	+  Using DirectoryLoader of langchain_community to load data 
+		+ LangChain's DirectoryLoader provides functionality for reading various file types from disk into LangChain Document objects. In this project, the data includes three types: pdf, docx, md.
+	+ Split documents into chunks using RecursiveCharacterTextSplitter.
+	+ Using model embedding-001 to embed the contents of each document  and insert these embeddings into the Chroma vector store.
+	+ Creating a vector retriever from a vectorstore.
+	+ Create a retriever from vector retriever and chat history.
+	+ Build the prompt for the question and answer.
+	+ Create a chain using the retriever, prompt, and the gemini-1.5-flash model.
+	+ Build an API with Flask to generate answers.
 
 ## Infra
