@@ -1,118 +1,63 @@
-# Study Vault UIT
+# AI assistant for SVUIT-MMTT
 
-![Alt](https://repobeats.axiom.co/api/embed/e73603f1010868482e65699b60fc62c7b99d2109.svg "Repobeats analytics image")
+## Front end
 
-## :memo: Giới thiệu
+### 1. Initialize Widget
 
-SVUIT - Study Vault of UIT là kho tài liệu trực tuyến, giúp các bạn sinh viên có thể tiếp cận trước tài liệu học tập cũng như tham khảo đồ án từ sinh viên khoá trước.
+- Event: User visits website.
+- Action:
+    + Widget appears in a fixed position in the lower right corner.
+    + Display a chat icon and the text Ask AI.
 
-Repository này dành cho:
+### 2. User Initiates Conversation
 
-- Ban quản trị dự án (Administrator)
-- Thành viên đóng góp (Contributor)
+- Event: User clicks on widget.
+- Action:
+    + displays the chat frame and notes about the chatbot's effects.
+    + Content outside the chat frame is blurred.
+      
+### 3. User Enters Message
 
-Nếu bạn muốn chia sẻ tài liệu học tập với chúng mình, bạn có thể:
+- Event: User enters text into the chat box.
+- Action:
+  + User's message is sent (Displayed on the right side of the chat frame).
+  + Bot processes messages and responds appropriately (Displayed on the left side of the chat frame).
 
-- Liên hệ chúng mình thông qua địa chỉ email **contact@svuit.org** và đính kèm tệp tài liệu của bạn.
-- Tạo một **Issue** trên [repo GitHub](https://github.com/SVUIT/mmtt) và đính kèm đường dẫn của bạn.
+### 4. Reply Bot
 
-Rất hoan nghênh sự đóng góp xây dựng của các bạn. :relaxed:
+- Event: The bot has finished processing the user's message.
+- Action:
+  + Bot sends reply messages, which can include:
+    + Text: Direct answers to user questions.
+    + Markdown: Display information as Markdown file.
+    + Button:
+    	+ Copy: let users copy the answer from the bot.
+    	+ Refresh: so that the user wants the bot to answer the previously asked question again.
+    
+### 5. Other Interactions
 
-## :clap: Thành viên
+- Users review chat history: Allows users to review previous conversations by scrolling up.
 
-<a href="https://github.com/SVUIT/mmtt/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=SVUIT/mmtt" />
-</a>
+### 6. End the Conversation
 
-## :anchor: Bắt đầu làm việc
+- Event: User closes the tab.
+- Action:
+  + Widget shrinks back to its original state and deletes all previous chat content.
 
-1. Clone repository
+## Back end
 
-```console
-git clone https://github.com/SVUIT/mmtt.git
-```
+- Idea: Building a chatbot using the Gemini base model and the LangChain LLM framework.  
+- Language: python
+-  Training data: content from courses of University of Information Technology, Viet Nam National University , Ho Chi Minh City. 
+- Steps:
+	+  Using DirectoryLoader of langchain_community to load data 
+		+ LangChain's DirectoryLoader provides functionality for reading various file types from disk into LangChain Document objects. In this project, the data includes three types: pdf, docx, md.
+	+ Split documents into chunks using RecursiveCharacterTextSplitter.
+	+ Using model embedding-001 to embed the contents of each document  and insert these embeddings into the Chroma vector store.
+	+ Creating a vector retriever from a vectorstore.
+	+ Create a retriever from vector retriever and chat history.
+	+ Build the prompt for the question and answer.
+	+ Create a chain using the retriever, prompt, and the gemini-1.5-flash model.
+	+ Build an API with Flask to generate answers.
 
-2. Tạo branch mới
-
-```console
-git branch <branch-name>
-```
-**Lưu ý:** Format tên branch `TenHo`
-
-3. Chuyển sang branch vừa tạo và làm việc trên branch đấy
-
-```console
-git checkout <branch-name>
-```
-
-## :clipboard: Cấu trúc file Markdown
-
-```markdown
----
-layout: default
-title: Mã môn học - Tên môn học
-parent: Folder chứa môn học
----
-
-# Mã môn học - Tên môn học
-
-## Tài liệu môn học
-
-[Folder Drive](link-tài-liệu){:target="_blank"}
-
-## Mô tả môn học
-
-### Điều kiện đăng ký
-
-| Môn học trước| Môn học tiên quyết  |
-|------|-----|
-| <center>-</center>| <center>Mã môn - Tên môn</center>|
-
-### Hệ số điểm
-
-| QT   | GK  | TH  | CK  |
-|------|-----|-----|-----|
-| <center>-</center>| <center>-</center>| <center>-</center> | <center>-</center> |
-
-### Lý thuyết
-
-Mô tả các chương, những thông tin liên quan ở phần lý thuyết...
-
-### Thực hành
-
-Mô tả các bài lab thực hành, hình thức thực hành (HT1/HT2)...
-
-### Đồ án
-
-Mô tả các nội dung về đồ án: số thành viên, đề tài...
-
-### Hình thức thi
-
-Mô tả hình thức thi giữa kỳ, cuối kỳ: thời gian, cấu trúc đề(tự luận/trắc nghiệm...), hình thức thi(tập trung/tại lớp...)
-
-## Thông tin khác
-
-Những thông tin hữu ích khác
-```
-
-## :floppy_disk: Cấu trúc folder Google Drive
-
-```
-.
-└── Docs/
-    └── Mã môn - Tên môn/
-        └── Khoá/
-            ├── 1. Lý thuyết
-            ├── 2. Thực hành
-            ├── 3. Đồ án
-            ├── 4. Ôn thi
-            └── 5. Tài liệu tham khảo
-```
-
-## :computer: Chạy web ở Local
-
-1. Tải [Ruby](https://www.ruby-lang.org/en/downloads/), [Jekyll](https://jekyllrb.com/) và [Bundler](https://bundler.io/) về máy.
-2. Chuyển đến thư mục root (`mmtt/`) của website này.
-3. Chạy lệnh `bundle install`.
-4. Chạy lệnh `bundle exec jekyll serve` để build website và xem nó ở `localhost:4000`.
-5. Website build xong sẽ được lưu trong thư mục `_site`.
+## Infra
