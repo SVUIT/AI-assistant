@@ -4,7 +4,7 @@
 
 ### 1. Initialize Widget
 
-- Event: User visits website svuit.org/mmtt/.
+- Event: User visits website.
 - Action:
     + Widget appears in a fixed position in the lower right corner.
     + Display a chat icon and the text Ask AI.
