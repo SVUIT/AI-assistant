@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+
+
+.dm-container {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0;
+  transition: background 0.2s linear;
+}
+
+.dm-container.dark {background-color: #292c35;} /* #9b59b6 */
+
+.dm-container.dark h1, .dm-container.dark .support a {color: #fff;}
+
+.dm-container .checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.dm-container .checkbox-label {
+  background-color: #44434d;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dm-container .fa-moon {color: #fff200; font-size: 15px;}
+
+.dm-container .fa-sun {color: #f39c12;font-size: 15px;}
+
+.dm-container .checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.dm-container .checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+.aux-nav .aux-nav-list {
+    margin-right: 20px;
+    justify-content: space-between;
+}
+
+.fs-9 {
+  font-weight: 500;
+	text-transform: uppercase;
+  background: linear-gradient(to right, #7C39F2, #117FFD
+  , #3FC0EE, #43E7BF);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; 
+  font-size: 2.5rem !important;
+}
+
+.btn-download::after {
+  font-family: fontAwesome;
+  font-size: 1.225rem;
+  margin-left: 5px ;
+  content: "\f019";
+  //f33a
+}
+
+.btn-gg-drive::after {
+  font-family: fontAwesome;
+  font-size: 1.225rem;
+  margin-left: 6px ;
+  content: "\f3aa";
+}
+
+.btn-form::after {
+  font-family: fontAwesome;
+  font-size: 1.225rem;
+  margin-left: 6px ;
+  content: "\f298";
+}
+
+.icon_footer {
+  color: inherit;
+  cursor: pointer;
+  font-size: 	20px !important;
+  display: flex;
+  align-items: center;
+  gap : 12px ;
+
+}
+
+.link_footer {
+  color: inherit;
+  cursor: pointer;
+  font-size: small !important;
+
+}
+
+.d-flex{
+  margin-top: 0 !important;
+}
+
+.text-small{
+  margin-top: 0!important;
+  font-size: small !important;
+  cursor: pointer;
+}
+
+.btn-youtube{
+  display: inline -flex;
+  align-items: center;
+  justify-content: center;
+  width:max-content;
+  background-color: #F0F0FFFF;
+}
+
+.btn-youtube::after{
+  font-family: fontAwesome;
+  font-size: 1.225rem;
+  margin-left: 6px ;
+  content: "\f167";
+}
+
+
+
+
+
+
