@@ -1,0 +1,4 @@
+Flask
+langchain-core
+langchain-chroma
+langchain_google_genai 
