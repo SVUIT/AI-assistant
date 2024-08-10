@@ -61,3 +61,24 @@
 	+ Build an API with Flask to generate answers.
 
 ## Infra
+
+- Encapsolution: The frontend and backend code is encapsoluted to run on Google Cloud enviroment using a Dockerfile
+
+- Container management: Containers are spawned using Docker Compose. When a user access to web, a container that holds an AI service is created for them. This helps ensure per-user containerization    
+
+- Socket Management: Sockets are used to maintain connections between the user and the server proxy. Each user has a unique socket id to differentiate them. Additionally, sockets enable faster communication from user to container that holding the AI service compared to http    
+
+- Proxy server: The proxy server is responsible for creating and closing sockets, as well as managing the creation and deletion of service containers. It also ensures per-user containerization.
+
+## Run the project
+
+### Run frontend code 
+1. Install Docker 
+2. Navigate to the folder containing the Dockerfile.
+3. Build the Docker image: "sudo docker build -t [ your-docker-image-name ] ."
+4. Run the Docker container: "sudo docker run -p [ host-port ]:4000 docker-image-name
+
+### Run backend code 
+1. Install Docker
+2. Navigate to the folder containing "compose.yml"
+3. Run the Docker Compose command: "sudo docker compose up --build"
