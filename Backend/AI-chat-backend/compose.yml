@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  service-ai:
+    image: service-ai
+    ports:
+      - "9000:8000"  # hoặc ánh xạ cổng cụ thể khác
+    volumes: 
+      - ./chromadb:/data/chromadb:ro 
+    env_file:
+      - ./.env

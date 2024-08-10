@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8888:5000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  service-backend:
+    build:
+      context: ./ai-chat-backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000-8800:8000"
+    env_file:
+      - ./ai-chat-backend/.env
+    depends_on:
+      - server

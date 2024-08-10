@@ -1,0 +1,8 @@
+flask
+flask_socketio
+flask_cors
+gunicorn
+eventlet
+requests
+urllib3<2
+docker
