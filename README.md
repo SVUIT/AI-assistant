@@ -70,7 +70,7 @@
 
 - Proxy server: The proxy server is responsible for creating and closing sockets, as well as managing the creation and deletion of service containers. It also ensures per-user containerization.
 
-- Add gemini api key to .env file
+- Add gemini api key to .env file in Backend/AI-chat-backend
 ## Run the project
 
 ### Run frontend code 
