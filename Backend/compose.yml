@@ -11,11 +11,11 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
   service-ai:
     build:
-      context: ./ai-chat-backend
+      context: ./AI-chat-backend
       dockerfile: Dockerfile
     ports:
       - "8000-8800:8000"
     env_file:
-      - ./ai-chat-backend/.env
+      - ./AI-chat-backend/.env
     depends_on:
       - proxy

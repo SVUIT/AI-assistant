@@ -53,7 +53,7 @@ def handle_client_event(json_data):
             container_info = connected_users[socket_id]
             port = container_info['port']
             try:
-                url = f"http://34.1.143.90:{port}/generate"
+                url = f"http://localhost:{port}/generate"
                 print(f"URL: {url}")
                 
                 # Tạo payload từ tin nhắn
@@ -104,7 +104,7 @@ def repeat():
     print(f"Port: {port}")
     print(f"Socket ID: {socket_id}")
     try:
-        url = f"http://34.1.143.90:{port}/generate"
+        url = f"http://localhost:{port}/generate"
         print(f"url: {url}")
         payload = json.dumps({
             "question": "Please answer that question again"
@@ -128,7 +128,7 @@ def send_message():
     message = request.json.get('message', '')
     socket_id = request.sid
     if message:
-        socketio.emit('server_response', {'message': message})
+        socketio.emit('server_response', {'message': message})  
         print(f"Message sent to {socket_id}: {message}")
         return jsonify({'status': 'success', 'message': 'Message sent!'})
     else:
@@ -147,8 +147,8 @@ def print_connected_users():
 
 def create_container():
     try:
-        # Lấy danh sách container IDs cho service-backend
-        ps_command = ['docker', 'compose', 'ps', '-q', 'service-backend']
+        # Lấy danh sách container IDs cho service-ai
+        ps_command = ['docker','compose','ps', '-q', 'service-ai']
         print(f"Running ps command: {' '.join(ps_command)}")
         result = subprocess.run(ps_command, capture_output=True, text=True, check=True)
         print("PS command output:", result.stdout)
@@ -157,14 +157,14 @@ def create_container():
         container_ids = result.stdout.strip().split('\n')
         current_count = len(container_ids)
         new_count = current_count + 1
-        print(f"Current number of service-backend containers: {current_count}")
+        print(f"Current number of service-ai containers: {current_count}")
         print(f"Scaling to: {new_count} containers")
 
-        # Tăng số lượng container của service-backend
+        # Tăng số lượng container của service-ai
         scale_command = [
-            'docker', 'compose', 'up', '-d', 
-            '--scale', f'service-backend={new_count}',
-            '--scale', 'server=0', 
+            'docker','compose','up', '-d', 
+            '--scale', f'service-ai={new_count}',
+            '--scale', 'proxy=0', 
         ]
         
         print("Running scale command:", ' '.join(scale_command))
@@ -172,14 +172,14 @@ def create_container():
         print("Scale command output:", result.stdout)
         result.check_returncode()
 
-        # Lấy danh sách container IDs mới cho service-backend
+        # Lấy danh sách container IDs mới cho service-ai
         result = subprocess.run(ps_command, capture_output=True, text=True, check=True)
         print("Updated PS command output:", result.stdout)
         print("Updated PS command error output:", result.stderr)
 
         container_ids = result.stdout.strip().split('\n')
         if not container_ids:
-            print("No containers found for service-backend.")
+            print("No containers found for service-ai.")
             return None, None
 
         container_id = container_ids[-1]

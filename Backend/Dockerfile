@@ -1,49 +1,38 @@
-# Use the official Python image as a base image
-FROM python:3.9.17-bookworm AS build-env
+# Sử dụng Python slim làm base image
+FROM python:3.9-slim
 
-# Allow statements and log messages to immediately appear in the logs
-ENV PYTHONUNBUFFERED=True
+# Cài đặt các công cụ cần thiết cho Docker
+RUN apt-get update && apt-get install -y \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
 
-# Set environment variable for the port
-ENV PORT=5000
+# Thêm khóa GPG cho Docker
+RUN mkdir -p /etc/apt/keyrings \
+    && curl -fsSL https://download.docker.com/linux/debian/gpg | tee /etc/apt/keyrings/docker.asc
 
-# Set the working directory in the container
+# Thêm Docker repository
+RUN echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(lsb_release -cs) stable" \
+    | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Cài đặt Docker CLI
+RUN apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
+
+# Thiết lập thư mục làm việc
 WORKDIR /app
 
-# Install Docker CLI and Docker Compose V2
-RUN apt-get update \
-    && apt-get install -y \
-       ca-certificates \
-       curl \
-       gnupg \
-    && mkdir -p /etc/apt/keyrings \
-    && curl -fsSL https://download.docker.com/linux/debian/gpg | tee /etc/apt/keyrings/docker.asc \
-    && echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian bookworm stable" | tee /etc/apt/sources.list.d/docker.list \
-    && apt-get update \
-    && apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin 
-
-# Copy the requirements file into the container at /app
+# Sao chép file requirements vào container
 COPY requirements.txt /app
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt \
-&& pip install --no-cache-dir --upgrade pip
+# Cài đặt các gói Python
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the current directory contents into the container at /app
+# Sao chép mã nguồn vào container
 COPY . /app
 
-# Use the official Python image as a base image
-FROM python:alpine3.20
-
-WORKDIR /app
-
-COPY --from=build-env /app /app
-
-RUN pip install --no-cache-dir -r /app/requirements.txt
-# Make port 5000 available to the world outside this container
-
+# Mở cổng 5000
 EXPOSE 5000
 
-# Run the application by gunicorn because it serve for production environment
-# If you want to run the application in development enviroment, you can use the cmd ["python3", "filename.py"]
-CMD ["gunicorn", "-b", "0.0.0.0:5000", "app:app"]
+# Chạy ứng dụng bằng Gunicorn
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--worker-class", "eventlet", "--workers", "1", "app:app"]
