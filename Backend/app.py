@@ -60,7 +60,7 @@ def handle_client_event():
             container_info = connected_users[uid]
             port = container_info['port']
             try:
-                url = f"http://localhost:{port}/generate/"
+                url = f"http://34.1.143.90:{port}/generate/"
                 print(f"URL: {url}")
 
                 # Tạo payload từ tin nhắn
