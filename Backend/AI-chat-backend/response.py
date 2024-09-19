@@ -8,6 +8,10 @@ app = Flask(__name__)
 # Initialize chat history
 chat_history = []
 
+@app.route('/')
+def index():
+    return "AI"
+
 @app.route('/generate', methods=['POST'])
 def generate():
     data = request.get_json()
