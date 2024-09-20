@@ -48,6 +48,7 @@ def handle_client_event(json_data):
     # Lấy tin nhắn từ dữ liệu JSON
     message = json_data.get('data', '')
     if message:
+        message = message + ".If the answer is not in the context, do not give information not mentioned in the CONTEXT INFORMATION and can say that you do not know or something like that. Always response in Vietnamese"
         # Kiểm tra xem socket_id có trong connected_users không
         if socket_id in connected_users:
             container_info = connected_users[socket_id]
@@ -107,7 +108,7 @@ def repeat():
         url = f"http://34.1.143.90:{port}/generate"
         print(f"url: {url}")
         payload = json.dumps({
-            "question": "Please answer that question again"
+            "question": "Please provide a different answer."
         })
         headers = {
             'Content-Type': 'application/json'
