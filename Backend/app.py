@@ -46,7 +46,7 @@ def index():
 
 
 # Route để nhận sự kiện từ người dùng
-@app.route('/client_event', methods=['GET'])
+@app.route('/client_event', methods=['POST'])
 def handle_client_event():
     json_data = request.get_json()
     print('Received event: ' + str(json_data))
@@ -60,7 +60,7 @@ def handle_client_event():
             container_info = connected_users[uid]
             port = container_info['port']
             try:
-                url = f"http://34.1.143.90:{port}/generate/"
+                url = f"http://35.239.171.0:{port}/generate"
                 print(f"URL: {url}")
 
                 # Tạo payload từ tin nhắn
@@ -214,16 +214,16 @@ def remove_container(container_id):
 #     else:
 #          return jsonify({'message': 'User not connected'}), 404
 
-# # Gửi tin nhắn phản hồi
-# @app.route('/send_message', methods=['POST'])
-# def send_message():
-#     message = request.json.get('message', '')
-#     uid = request.args.get('uid')
-#     if message:
-#         print(f"Message sent to {uid}: {message}")
-#         return jsonify({'status': 'success', 'message': 'Message sent!'})
-#     else:
-#         return jsonify({'status': 'failure', 'message': 'No message provided'}), 400
+# Gửi tin nhắn phản hồi
+@app.route('/send_message', methods=['POST'])
+def send_message():
+    message = request.json.get('message', '')
+    uid = request.args.get('uid')
+    if message:
+        print(f"Message sent to {uid}: {message}")
+        return jsonify({'status': 'success', 'message': 'Message sent!'})
+    else:
+        return jsonify({'status': 'failure', 'message': 'No message provided'}), 400
 
 if __name__ == '__main__':
     app.run(debug=True)

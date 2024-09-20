@@ -15,8 +15,9 @@ def index():
 @app.route('/generate', methods=['POST'])
 def generate():
     data = request.get_json()
+    print(data)
     question = data.get('question', '')
-
+    print(question)
     if not question:
         return jsonify({'error': 'No question provided'}), 400
     
