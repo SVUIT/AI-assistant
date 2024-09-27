@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  var socket = io('http://34.1.143.90:8888/');
+  var socket = io('http://localhost:8888/');
 
     socket.on('connect', function() {
         console.log('Connected to Flask server');

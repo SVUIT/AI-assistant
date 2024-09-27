@@ -7,13 +7,12 @@ WORKDIR /mmtt
 COPY Gemfile Gemfile.lock ./
 
 # Install Bundler and project dependencies
-RUN gem install bundler && bundle install
+RUN gem install bundler && bundle install 
 
 # Copy the project files after installing dependencies to leverage Docker caching
 COPY . .
 
-# Install Jekyll and build the site
-RUN gem install jekyll && bundle exec jekyll build
+RUN rm -rf node_modules tmp/cache app/assets vendor/assets spec
 
 # Stage 2: Final image
 FROM alpine:latest
