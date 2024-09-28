@@ -1,38 +1,42 @@
 ---
 layout: default
-title: Contribute
+title: Đóng góp
 nav_exclude: true
 search_exclude: true
 ---
 
-# Contribute to the website
+# Đóng góp cho website
 
-## Study materials
+## Tài liệu học tập
 
-If you want to share study materials with us, please access the Form below:
+Nếu bạn muốn chia sẻ tài liệu học tập với chúng mình, hãy truy cập vào Form bên dưới:
 
 [Form](https://link.svuit.org/submit){:target="_blank" : .btn .btn-primary .btn-form .fs-5 .mb-4 .mb-md-0 .mr-2 }
 
-If you have any other questions, please contact us via email address **contact@svuit.org**
+Nếu các bạn có thắc mắc gì khác liên hệ chúng mình thông qua địa chỉ email **contact@svuit.org**
 
-## Content on the website
+## Nội dung trên web
 
-If there is any content on the website that has not been mentioned about the subject or you feel that some content is incorrect:
+Nếu có nội dung nào đó trên web chưa được đề cập về môn học hoặc bạn cảm thấy phần nội dung nào đó chưa đúng:
 
-- Contact via email or create **Issue** as stated in the [Study materials [#study-materials].
-- Fork our GitHub repo and add your edits directly, then create a **Pull request** on this main repo.
+- Liên hệ qua email hoặc tạo **Issue** như đã nêu ở mục [Tài liệu học tập](#tài-liệu-học-tập).
+- Fork repo GitHub của chúng mình về và trực tiếp thêm chỉnh sửa của bạn vào, sau đó tạo một **Pull request** trên repo chính này.
 
-## List of contributors
+## Danh sách contributors
 
-- Tong Vo Anh Thuan, MMCL2021
-- Le Huynh Quang Vu, MMCL2021
-- Tran Cong Hai, MMCL2021
-- Nguyen Dang To, MMCL2021
-- Le Dinh Tri, MMTT2021
-- Tran Mai Han, MMTT2021
+- Tống Võ Anh Thuận, MMCL2021
+- Lê Huỳnh Quang Vũ, MMCL2021
+- Trần Công Hải, MMCL2021
+- Nguyễn Đăng Tố, MMCL2021
+- Lê Đình Trí, MMTT2021
+- Trần Mai Hân, MMTT2021
 - [quocanuit, GitHub](https://github.com/SVUIT/mmtt/issues/30)
 - [NGODAT0103, GitHub](https://github.com/SVUIT/mmtt/issues/31)
-- Dang Chi Thanh, MMTT2022.3
-- Nguyen Hoang Loc, MMTT2023.2
+- Đặng Chí Thành, MMTT2022.3
+- Nguyễn Hoàng Lộc, MMTT2023.2
+- Đoàn Nguyễn Lâm, CNTT.1
+- Phạm Gia Tuệ, Waseda University 
+- Đoàn Quốc An, MMTT2023.1
+- [dinhkarate, GitHub](https://github.com/SVUIT/mmtt/pull/142)
 
-And anonymous contributors.
+Và những bạn đóng góp ẩn danh.

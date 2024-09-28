@@ -7,4 +7,9 @@ has_children: true
 
 # Templates
 
-This is where the templates for subject project reports, major projects, and graduation theses are compiled and edited by the SVUIT team. The main purpose is to help students have more time to focus on writing the report content instead of having to spend time editing the layout, format, font, etc.
+Đây là nơi chứa các template báo cáo đồ án môn học, đồ án chuyên ngành, và khóa luận tốt nghiệp do team SVUIT tổng hợp và biên soạn. Mục đích chính là giúp các bạn sinh viên có thêm thời gian tập trung viết nội dung báo cáo thay vì phải tốn thời gian chỉnh sửa bố cục, định dạng, font chữ, v.v...
+
+
+
+
+

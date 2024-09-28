@@ -1,50 +1,50 @@
 ---
 layout: default
-title: Specialized project
+title: Đồ án chuyên ngành
 parent: Templates
 ---
 
-## Template templates
+## Các mẫu Template
 
-The template is built based on [sonnh-uit/HCMUIT_thesistemplate](https://github.com/sonnh-uit/HCMUIT_thesistemplate/tree/master)
+Mẫu template được dựng dựa trên [sonnh-uit/HCMUIT_thesistemplate](https://github.com/sonnh-uit/HCMUIT_thesistemplate/tree/master)
 
-### LaTeX template on OverLeaf
+### Template LaTeX trên OverLeaf
 
-[Access](https://link.svuit.org/dacn-overleaf){: .btn .btn-primary }
+[Truy cập](https://link.svuit.org/dacn-overleaf){: .btn .btn-primary }
 
-### LaTeX template source code
+### Source code template LaTeX
 
-[Access](https://github.com/SVUIT/report-templates/tree/main/specialized-project){: .btn .btn-primary }
+[Truy cập](https://github.com/SVUIT/report-templates/tree/main/specialized-project){: .btn .btn-primary }
 
-## Instructions for using the subject project template
+## Hướng dẫn sử dụng Template đồ án môn học
 
-### Basic syntax
+### Cú pháp cơ bản
 
-For those who have not used LaTeX or rarely use it, you can refer to the link [Instructions on OverLeaf](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes) to learn how to use basic syntax.
+Đối với những bạn chưa sử dụng qua LaTeX hoặc ít sử dụng, có thể tham khảo link [Hướng dẫn trên OverLeaf](https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes) để biết sử dụng các cú pháp cơ bản nhé.
 
-### File organization
+### Tổ chức file
 
 ```md
 ├── chapters
-│ ├── front // Acronyms and Acknowledgements
-│ | ├── glossaries.tex
-│ | ├── thanks.tex
-│ ├── main // Main content
-│ | ├── chapter-1.tex
-│ | ├── chapter-2.tex
-│ | ├── conclusion.tex
-│ | ├── intro.tex
-│ | ├── summary.tex
-├── graphics // Folder containing images
-│ ├── chapter-1
-│ | ├──pic-1.png
-│ ├── chapter-2
-│ | ├── pic-2.png
-├── main.tex // Main file to aggregate content from other files
-├── project.cls // Defines the cover page and some important formats such as margins, page frames.
-├──ref.bib // Contains references at the end of the report
+│   ├── front // Danh mục từ viết tắt và Lời cảm ơn
+│   |    ├── glossaries.tex
+│   |    ├── thanks.tex
+│   ├── main // Nội dung chính
+│   |    ├── chapter-1.tex
+│   |    ├── chapter-2.tex
+│   |    ├── conclusion.tex
+│   |    ├── intro.tex
+│   |    ├── summary.tex
+├── graphics // Folder chứa hình ảnh
+│   ├── chapter-1
+│   |    ├──pic-1.png
+│   ├── chapter-2
+│   |    ├── pic-2.png
+├── main.tex // File chính để tổng hợp nội dung từ các file khác
+├── project.cls // Định nghĩa trang bìa và một số định dạng quan trọng như lề, khung trang.
+├──ref.bib // Chứa các nguồn tài liệu tham khảo ở cuối báo cáo
 ```
 
-### Overleaf is better
+### Overleaf bản xịn hơn
 
-The free version of OverLeaf will have certain limitations such as only allowing a maximum of 2 editors. Students of the Networking faculty can use [latex.uitiot.vn](https://latex.uitiot.vn/project) (log in with school email) to use premium features without additional fees, however it will be a bit slow when compiling.
+Bản free của OverLeaf sẽ có các hạn chế nhất định như chỉ được phép tối đa 2 người chỉnh sửa. Các bạn sinh viên khoa Mạng có thể sử dụng [latex.uitiot.vn](https://latex.uitiot.vn/project) (đăng nhập bằng mail trường) để được sử dụng các tính năng premium mà không tốn thêm phí, tuy nhiên sẽ hơi chậm khi compile.
