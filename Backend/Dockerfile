@@ -8,10 +8,10 @@ ENV PYTHONUNBUFFERED=True
 ENV PORT=5000
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /Backend
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+COPY . /Backend
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir --upgrade pip \
