@@ -1,4 +1,8 @@
 Flask
 langchain-core
-langchain-chroma
-langchain_google_genai 
+tqdm
+langchain_community
+langchain_qdrant
+qdrant_client
+langchain_google_genai
+langchain_huggingface

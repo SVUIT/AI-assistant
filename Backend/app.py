@@ -14,8 +14,8 @@ cors = CORS(app)
 
 connected_users = {}
 container_request_queue = queue.Queue()
-path = "http://35.238.176.124"
-
+# path = "http://35.238.176.124"
+path = "http://localhost"
 # Tạo uid 
 def generate_user_id():
     return str(uuid.uuid4())
