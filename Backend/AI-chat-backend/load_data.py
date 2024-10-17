@@ -1,12 +1,12 @@
-from langchain_chroma import Chroma
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
-import os
+from langchain_community.document_loaders import DirectoryLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-google_api_key = os.getenv("GEMINI_API_KEY")
+# Load data form directory 
+loader = DirectoryLoader("/home/nguylam/Documents/Project/test_qdrant/reference", show_progress=True , use_multithreading=True)
+doc = loader.load()
 
-## Load data from chromadb 
-persist_directory = 'chromadb'
-embedding_func = GoogleGenerativeAIEmbeddings(model = "models/embedding-001" , google_api_key = google_api_key)
-vectordb = Chroma(persist_directory=persist_directory, 
-                  embedding_function=embedding_func)
-
+# Split data to chunk
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=550, chunk_overlap=100 
+)
+docs = text_splitter.split_documents(doc)
