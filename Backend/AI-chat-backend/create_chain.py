@@ -1,16 +1,16 @@
 import os
-from dotenv import load_dotenv
+
 from langchain_qdrant import QdrantVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
 
-load_dotenv()
+
 #create vectorstore from qdrant
 api_key_qdrant = os.environ["QDRANT_API_KEY"]
 url = os.environ["URL_QDRANT"]
-collection_name = "embedding_data"
+collection_name = "dsc_data"
 embedding_function = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
 vectorstore = QdrantVectorStore.from_existing_collection(
-    collection_name="embedding_data",
+    collection_name="dsc_data",
     embedding=embedding_function,
     url=url,
     api_key=api_key_qdrant,
@@ -91,7 +91,7 @@ retriever_chain = RunnablePassthrough.assign(
         context=contextualized_question | retriever_llm
     )
 
-## create main chain that produces the final answer
+## create  main chain that produces the final answer
 rag_chain = (
     retriever_chain
     | qa_prompt

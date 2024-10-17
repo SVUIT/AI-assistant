@@ -1,7 +1,5 @@
 Flask
 langchain-core
-tqdm
-langchain_community
 langchain_qdrant
 qdrant_client
 langchain_google_genai

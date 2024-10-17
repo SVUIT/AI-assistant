@@ -7,6 +7,7 @@ import json
 import requests
 import os
 import uuid
+from link_data import data
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -20,6 +21,21 @@ path = "http://35.238.176.124"
 def generate_user_id():
     return str(uuid.uuid4())
 
+def covert_path_to_link( response_data ):
+    temp = response_data.get('source')
+    print(temp)
+    if temp is None:
+        response_data['source'] = None
+        return response_data
+    result_of_split = temp.split("|") 
+    linked_data = {}
+    for element in result_of_split:
+        if element in data:
+            linked_data[element] = data[element]
+    print(linked_data)
+    response_data['source'] = linked_data
+    return response_data
+    
 # Định nghĩa hàm xử lý hàng đợi
 def process_container_requests():
     while True:
@@ -81,9 +97,10 @@ def handle_client_event():
 
                 # Xử lý phản hồi
                 response_data = response.json()
+                response_data = covert_path_to_link(response_data)
                 print(response_data)
-                response_message = response_data.get('response', '')
-                return jsonify({'message': response_message})
+                #response_message = response_data.get('response', '')
+                return jsonify({'message': response_data})
             except requests.RequestException as e:
                 print(f"Error sending request: {e}")
                 return jsonify({'message': 'Server is starting please try again in a few seconds'}), 500

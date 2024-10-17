@@ -1,12 +1,11 @@
 import os
-from dotenv import load_dotenv
+
 from qdrant_client import QdrantClient
 from qdrant_client.http import models
 from langchain_huggingface import HuggingFaceEmbeddings
 from tqdm.auto import tqdm
 from load_data import docs
 
-load_dotenv()
 api_key_qdrant = os.environ["QDRANT_API_KEY"]
 url = os.environ["URL_QDRANT"]
 collection_name = "embedding_data"

@@ -3,13 +3,13 @@ from create_reader import reader
 from typing import List
 from langchain_huggingface import HuggingFaceEmbeddings
 from qdrant_client import QdrantClient
-from dotenv import load_dotenv
+
 
 # get qdrant client and embedding_function
-load_dotenv()
+
 api_key_qdrant = os.environ["QDRANT_API_KEY"]
 url = os.environ["URL_QDRANT"]
-collection_name = "embedding_data"
+collection_name = "dsc_data"
 client = QdrantClient(url=url,api_key=api_key_qdrant)
 embedding_function = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
 
@@ -78,4 +78,3 @@ def extract_answer(question: str, context: List[str]):
         )
     print(sum)
     return sum
-

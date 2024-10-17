@@ -17,4 +17,3 @@ vectordb = Chroma(persist_directory=persist_directory, embedding_function=embedd
 
 # Add new documents
 vectordb.add_documents(all_splits)
-

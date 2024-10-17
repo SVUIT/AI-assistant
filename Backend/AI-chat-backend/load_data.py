@@ -10,5 +10,3 @@ text_splitter = RecursiveCharacterTextSplitter(
     chunk_size=550, chunk_overlap=100 
 )
 docs = text_splitter.split_documents(doc)
-
-
