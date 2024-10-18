@@ -654,15 +654,45 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then(response => response.json())
     .then(data => {
-      console.log('Success:', data.message);
-      hideLoader();
-      displayAIMessage(data.message);
+      console.log('Success:', data.message); 
+      //hideLoader();
+      // Xử lý message và source
+      handleServerResponse(data);
+      //displayAIMessage(data.message);
     })
     .catch((error) => {
       console.error('Error:', error);
       hideLoader();
       displayAIMessage("Error: Unable to send message. Please try again.");
     });
+  }
+
+  // Hàm xử lý phản hồi từ server
+  function handleServerResponse(data) {
+    const aiMessage = data.message['response'];
+    const source = data.message['source'];
+    console.log('Content: ', aiMessage);
+    console.log('Source: ', source);
+
+    // Kiểm tra nếu source rỗng, chỉ hiển thị aiMessage
+    if (Object.keys(source).length === 0) {
+      hideLoader();
+      displayAIMessage(aiMessage);
+      return;
+    }
+
+    // Lấy tất cả các key và value từ object
+    const keys = Object.keys(source);
+    const values = Object.values(source);
+  
+    // Gán giá trị từ mảng source
+    const sourceKey = keys[0];
+    const sourceValue = values[0];
+
+    // Tạo message kết hợp với hyperlink
+    const combinedMessage = `${aiMessage}<br><br><span style="font-size: 0.7em;">Nguồn: <a href="${sourceValue}" target="_blank">${sourceKey}</a></span>`;
+    hideLoader();
+    displayAIMessage(combinedMessage);
   }
   restoreChatHistory();
 });
