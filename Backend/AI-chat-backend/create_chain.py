@@ -1,14 +1,17 @@
 import os
-
 from langchain_qdrant import QdrantVectorStore
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 
 #create vectorstore from qdrant
 api_key_qdrant = os.environ["QDRANT_API_KEY"]
 url = os.environ["URL_QDRANT"]
 collection_name = "dsc_data"
-embedding_function = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+embedding_function = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 vectorstore = QdrantVectorStore.from_existing_collection(
     collection_name="dsc_data",
     embedding=embedding_function,
@@ -17,12 +20,9 @@ vectorstore = QdrantVectorStore.from_existing_collection(
 )
 
 #create retriever
-retriever_llm = vectorstore.as_retriever(search_type="mmr",search_kwargs={"k": 7})
+retriever_llm = vectorstore.as_retriever(search_type="similarity",search_kwargs={"k": 20})
 
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_core.runnables import RunnablePassthrough
-from langchain_core.output_parsers import StrOutputParser
-from langchain_google_genai import ChatGoogleGenerativeAI
+
 google_api_key = os.environ["GEMINI_API_KEY"]
 
 
@@ -73,6 +73,8 @@ qa_prompt = ChatPromptTemplate.from_messages(
         
         ("system", qa_system_prompt),
         MessagesPlaceholder(variable_name="chat_history"),
+        ("human", "Xin chào"),
+        ("ai","Chào bạn, tôi là chatbot hỗ trợ trả lời câu hỏi của SVUIT. Tôi có thể giúp gì cho bạn?"),
         ("human", "Du lịch Việt Nam nên đi đâu?"),
         ("ai", "Xin lỗi, Tôi không được thiết kế để trả lời câu hỏi này. Tôi chỉ có thể trả lời các câu hỏi liên quan đến công nghệ thông tin, mạng máy tính, UIT"),
         ("human","Bạn có biết Doraemon không?"),

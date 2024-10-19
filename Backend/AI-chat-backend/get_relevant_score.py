@@ -11,7 +11,7 @@ api_key_qdrant = os.environ["QDRANT_API_KEY"]
 url = os.environ["URL_QDRANT"]
 collection_name = "dsc_data"
 client = QdrantClient(url=url,api_key=api_key_qdrant)
-embedding_function = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+embedding_function = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 
 # print(reader.model, reader)
 

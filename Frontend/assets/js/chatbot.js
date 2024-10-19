@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
   //Thêm ghi chú vào chatbox.
   const note = document.createElement('div');
-    note.innerText = 'This is a custom LLM for answering questions about SVUIT - MMTT. Answers are based on the contents of the documentation.';
+    note.innerText = 'Đây là một mô hình ngôn ngữ tùy chỉnh (LLM) để trả lời các câu hỏi về SVUIT - MMTT. Câu trả lời dựa trên nội dung của tài liệu.';
     note.style = `
       background-color: #FFFFCC;
       color: #000;
@@ -663,7 +663,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error('Error:', error);
       hideLoader();
-      displayAIMessage("Error: Unable to send message. Please try again.");
+      displayAIMessage("Server đang chuẩn bị, vui lòng chời trong giây lát.");
     });
   }
 
@@ -686,13 +686,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const values = Object.values(source);
   
     // Gán giá trị từ mảng source
-    const sourceKey = keys[0];
-    const sourceValue = values[0];
-
+    const sourceKey1 = keys[0];
+    const sourceValue1 = values[0];
+    const sourceKey2 = keys[1];
+    const sourceValue2 = values[1];
     // Tạo message kết hợp với hyperlink
-    const combinedMessage = `${aiMessage}<br><br><span style="font-size: 0.7em;">Nguồn: <a href="${sourceValue}" target="_blank">${sourceKey}</a></span>`;
+    const combinedMessage = `${aiMessage}<br><br>
+      <span style="font-size: 1.1em;">Nguồn 1: <a href="${sourceValue1}" target="_blank">${sourceKey1}</a></span><br><br>
+      <span style="font-size: 1.1em;">Nguồn 2: <a href="${sourceValue2}" target="_blank">${sourceKey2}</a></span>`;
     hideLoader();
-    displayAIMessage(combinedMessage);
+    displayAIMessage(String(combinedMessage));
   }
   restoreChatHistory();
 });
