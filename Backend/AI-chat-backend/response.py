@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify
 from langchain_core.messages import HumanMessage
-from create_chain import rag_chain
-from get_relevant_score import get_relevant_plot, extract_answer 
-
+from create_chain import rag_chain,retriever
 # Initialize Flask app
 app = Flask(__name__)
 
@@ -22,16 +20,36 @@ def generate():
         return jsonify({'error': 'No question provided'}), 400
     
     try:
-        context = get_relevant_plot(question, top_k=3)
-        score = extract_answer(question, context)
-        if ( score < 0.1):
-            return jsonify({'response': "Tôi xin lỗi, tôi không có đủ thông tin để trả lời câu hỏi này"})
+        count = 0
+        score = 0
+        relevant_docs = ""
+        scene = {
+    "Xin chào": "Chào bạn, tôi là chatbot hỗ trợ của SVUIT. Tôi có thể giúp gì cho bạn?"
+    }
+        if question in scene:
+            return jsonify({'response': scene[question],'source':""})
         else:
-            ai_msg = rag_chain.invoke({"question": question, "chat_history": chat_history , "topic": "UIT, internet and information technology"})
-                    
+            # Tính score
+            relevant_results=retriever.invoke(question)
+            for x in range(len(relevant_results)):
+                score+=float(relevant_results[x].metadata.get('score'))
+            score /=len(relevant_results)
+            if ( score < 0.4):
+                return jsonify({'response': "Tôi xin lỗi, tôi không có đủ thông tin để trả lời câu hỏi này",'source':""})
+            else:
+                for x in range(len(relevant_results)):
+                    if (relevant_docs.__contains__(relevant_results[x].metadata.get('source')) | relevant_results[x].metadata.get('source').__contains__("docs")):
+                        continue
+                    relevant_docs +=(relevant_results[x].metadata.get('source'))
+                    count+=1
+                    if count==2:
+                        break
+                    relevant_docs+='|'
+                ai_msg = rag_chain.invoke({"question": question, "chat_history": chat_history , "topic": "UIT, internet and information technology"})
+                            
                 # Update chat history with the new messages
-            chat_history.extend([HumanMessage(content=question), ai_msg])
-            return jsonify({'response': ai_msg.content})
+                chat_history.extend([HumanMessage(content=question), ai_msg])
+                return jsonify({'response': ai_msg.content,'source': relevant_docs})
         
     except Exception as e:
         return jsonify({'error': str(e)}), 500

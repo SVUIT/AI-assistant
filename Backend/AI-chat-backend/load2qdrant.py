@@ -9,7 +9,7 @@ from load_data import docs
 load_dotenv()
 api_key_qdrant = os.environ["QDRANT_API_KEY"]
 url = os.environ["URL_QDRANT"]
-collection_name = "embedding_data"
+collection_name = "dsc_data"
 client = QdrantClient(url=url,api_key=api_key_qdrant)
 
 collections = client.get_collections()
@@ -25,7 +25,7 @@ if collection_name not in [c.name for c in collections.collections]:
 collections = client.get_collections()
 print(collections) 
 # get embedding function
-embedding_function = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+embedding_function = HuggingFaceEmbeddings(model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 collection_vector_count = client.get_collection(collection_name=collection_name).points_count
 
 batch_size = 64
