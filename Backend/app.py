@@ -23,6 +23,7 @@ def generate_user_id():
 
 def covert_path_to_link( response_data ):
     temp = response_data.get('source')
+    text = response_data.get('response')
     print(temp)
     if temp is None:
         response_data['source'] = None
@@ -32,6 +33,8 @@ def covert_path_to_link( response_data ):
     for element in result_of_split:
         if element in data:
             linked_data[element] = data[element]
+        else:
+            response_data['response'] += "\n" + str(element)
     print(linked_data)
     response_data['source'] = linked_data
     return response_data
@@ -77,7 +80,7 @@ def handle_client_event():
     if message:
         # Kiểm tra xem uid có trong connected_users không
         if uid in connected_users:
-            message = message + ".If the answer is not in the context, do not give information not mentioned in the CONTEXT INFORMATION and can say that you do not know or something like that. Always response in Vietnamese"
+            # message = message + ".If the answer is not in the context, do not give information not mentioned in the CONTEXT INFORMATION and can say that you do not know or something like that. Always response in Vietnamese"
             container_info = connected_users[uid]
             port = container_info['port']
             try:
@@ -230,7 +233,7 @@ def repeat():
             url = f"{path}:{port}/generate"
             print(f"url: {url}")
             payload = json.dumps({
-                "question": "Please answer that question again"
+                "question": "Please give the other answer for that question again"
             })
             headers = {
                 'Content-Type': 'application/json'

@@ -1119,40 +1119,40 @@
     
     "relUrl": "/docs/Templates/doanmonhoc.html"
   },"160": {
-    "doc": "Môn học chuyên ngành",
-    "title": "Môn học chuyên ngành",
-    "content": "Các môn học chuyên ngành thuộc khối kiến thức giáo dục chuyên nghiệp nhằm cung cấp cho người học những kiến thức và kỹ năng nghề nghiệp cần thiết. Sinh viên ngành MMT&amp;TTDL cần phải học tối thiểu 12 tín chỉ đối với các môn học chuyên ngành. ",
-    "url": "/docs/MonHocChuyenNganh/",
-    
-    "relUrl": "/docs/MonHocChuyenNganh/"
-  },"161": {
-    "doc": "Môn học cơ sở ngành",
-    "title": "Môn học cơ sở ngành",
-    "content": "Các môn học cơ sở ngành thuộc khối kiến thức giáo dục chuyên nghiệp nhằm cung cấp cho người học những kiến thức và kỹ năng nghề nghiệp cần thiết. Sinh viên bắt buộc phải hoàn thành tất cả các môn học cơ sở ngành trong chương trình đào tạo của mình. ",
-    "url": "/docs/MonHocCoSoNganh/",
-    
-    "relUrl": "/docs/MonHocCoSoNganh/"
-  },"162": {
-    "doc": "Môn học đại cương",
-    "title": "Môn học đại cương",
-    "content": "Các môn học đại cương được thiết kế nhằm trang bị cho sinh viên nền học vấn rộng để tiếp thu tốt kiến thức chuyên môn và tạo nền tảng cho người học dễ dàng thích nghi với môi trường. Sinh viên bắt buộc phải hoàn thành tất cả các môn học đại cương trong chương trình đào tạo của mình. ",
-    "url": "/docs/MonHocDaiCuong/",
-    
-    "relUrl": "/docs/MonHocDaiCuong/"
-  },"163": {
-    "doc": "Môn học tự chọn",
-    "title": "Môn học tự chọn",
-    "content": "Sinh viên ngành MMT&amp;TTDL cần phải học tối thiểu 9 tín chỉ đối với các môn học tự chọn (K16) hoặc 8 tín chỉ (K17-K18). Các môn học tự chọn có thể học theo danh sách đề xuất của khoa hoặc tự đăng ký ở các khoa khác theo quy định (môn học tự chọn tự do). Đối với các học phần tự chọn, nếu điểm dưới 5,0 sinh viên được phép đăng ký học lại học phần đó hoặc chọn học phần khác thay thế trong số các học phần tự chọn quy định cho mỗi ngành đào tạo. ",
-    "url": "/docs/MonHocTuChon/",
-    
-    "relUrl": "/docs/MonHocTuChon/"
-  },"164": {
     "doc": "Templates",
     "title": "Templates",
     "content": "Đây là nơi chứa các template báo cáo đồ án môn học, đồ án chuyên ngành, và khóa luận tốt nghiệp do team SVUIT tổng hợp và biên soạn. Mục đích chính là giúp các bạn sinh viên có thêm thời gian tập trung viết nội dung báo cáo thay vì phải tốn thời gian chỉnh sửa bố cục, định dạng, font chữ, v.v… . ",
     "url": "/docs/Templates/",
     
     "relUrl": "/docs/Templates/"
+  },"161": {
+    "doc": "Môn học chuyên ngành",
+    "title": "Môn học chuyên ngành",
+    "content": "Các môn học chuyên ngành thuộc khối kiến thức giáo dục chuyên nghiệp nhằm cung cấp cho người học những kiến thức và kỹ năng nghề nghiệp cần thiết. Sinh viên ngành MMT&amp;TTDL cần phải học tối thiểu 12 tín chỉ đối với các môn học chuyên ngành. ",
+    "url": "/docs/MonHocChuyenNganh/",
+    
+    "relUrl": "/docs/MonHocChuyenNganh/"
+  },"162": {
+    "doc": "Môn học tự chọn",
+    "title": "Môn học tự chọn",
+    "content": "Sinh viên ngành MMT&amp;TTDL cần phải học tối thiểu 9 tín chỉ đối với các môn học tự chọn (K16) hoặc 8 tín chỉ (K17-K18). Các môn học tự chọn có thể học theo danh sách đề xuất của khoa hoặc tự đăng ký ở các khoa khác theo quy định (môn học tự chọn tự do). Đối với các học phần tự chọn, nếu điểm dưới 5,0 sinh viên được phép đăng ký học lại học phần đó hoặc chọn học phần khác thay thế trong số các học phần tự chọn quy định cho mỗi ngành đào tạo. ",
+    "url": "/docs/MonHocTuChon/",
+    
+    "relUrl": "/docs/MonHocTuChon/"
+  },"163": {
+    "doc": "Môn học đại cương",
+    "title": "Môn học đại cương",
+    "content": "Các môn học đại cương được thiết kế nhằm trang bị cho sinh viên nền học vấn rộng để tiếp thu tốt kiến thức chuyên môn và tạo nền tảng cho người học dễ dàng thích nghi với môi trường. Sinh viên bắt buộc phải hoàn thành tất cả các môn học đại cương trong chương trình đào tạo của mình. ",
+    "url": "/docs/MonHocDaiCuong/",
+    
+    "relUrl": "/docs/MonHocDaiCuong/"
+  },"164": {
+    "doc": "Môn học cơ sở ngành",
+    "title": "Môn học cơ sở ngành",
+    "content": "Các môn học cơ sở ngành thuộc khối kiến thức giáo dục chuyên nghiệp nhằm cung cấp cho người học những kiến thức và kỹ năng nghề nghiệp cần thiết. Sinh viên bắt buộc phải hoàn thành tất cả các môn học cơ sở ngành trong chương trình đào tạo của mình. ",
+    "url": "/docs/MonHocCoSoNganh/",
+    
+    "relUrl": "/docs/MonHocCoSoNganh/"
   },"165": {
     "doc": "Home",
     "title": "Study Vault of UIT - MMTT Edition",
@@ -1212,7 +1212,7 @@
   },"173": {
     "doc": "Đồ án chuyên ngành",
     "title": "NT114 - Đồ án chuyên ngành",
-    "content": "Tóm tắt môn học . ",
+    "content": " ",
     "url": "/docs/nt114.html#nt114---%C4%91%E1%BB%93-%C3%A1n-chuy%C3%AAn-ng%C3%A0nh",
     
     "relUrl": "/docs/nt114.html#nt114---đồ-án-chuyên-ngành"
