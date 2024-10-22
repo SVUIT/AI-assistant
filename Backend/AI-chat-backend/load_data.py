@@ -2,7 +2,7 @@ from langchain_community.document_loaders import DirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # Load data form directory 
-loader = DirectoryLoader("/home/nguylam/Documents/Project/test_qdrant/reference", show_progress=True , use_multithreading=True)
+loader = DirectoryLoader("folder", show_progress=True , use_multithreading=True)
 doc = loader.load()
 
 # Split data to chunk

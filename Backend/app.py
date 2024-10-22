@@ -166,8 +166,9 @@ def create_container():
         print(f"Scaling to: {new_count} containers")
 
         # Tăng số lượng container của service-ai
+        # , '--scale', 'proxy=0'
         scale_command = [
-            'docker','compose','up', '-d', '--scale', f'service-ai={new_count}', '--scale', 'proxy=1',
+            'docker','compose','up', '-d', '--scale', f'service-ai={new_count}',
         ]
         print("Running scale command:", ' '.join(scale_command))
         result = subprocess.run(scale_command, capture_output=True, text=True)
